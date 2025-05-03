@@ -6,7 +6,7 @@ function getWeather() {
     xhr.onload = function () {
       if (this.status === 200) {
         const data = JSON.parse(this.responseText);
-        const cityData = data.cities.find(c => c.name.toLowerCase() === city);
+        const cityData = data.cities.find(c => c.name === city);
   
         const resultDiv = document.getElementById('result');
         if (cityData) {
