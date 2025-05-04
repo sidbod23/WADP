@@ -9,29 +9,15 @@ function renderTasks() {
   list.innerHTML = "";
 
   fakeServerDB.forEach((task, index) => {
-    const li = document.createElement("li");
-
-    const taskText = document.createElement("span");
-    taskText.className = "task-text";
-    taskText.textContent = task.text;
-
-    const editBtn = document.createElement("button");
-    editBtn.textContent = "Edit";
-    editBtn.onclick = () => editTask(index);
-
-    const deleteBtn = document.createElement("button");
-    deleteBtn.textContent = "Delete";
-    deleteBtn.onclick = () => deleteTask(index);
-
-    const actionsDiv = document.createElement("div");
-    actionsDiv.className = "actions";
-    actionsDiv.appendChild(editBtn);
-    actionsDiv.appendChild(deleteBtn);
-
-    li.appendChild(taskText);
-    li.appendChild(actionsDiv);
-
-    list.appendChild(li);
+    list.innerHTML += `
+      <li>
+        <span class="task-text">${task.text}</span>
+        <div class="actions">
+          <button onclick="editTask(${index})">Edit</button>
+          <button onclick="deleteTask(${index})">Delete</button>
+        </div>
+      </li>
+    `;
   });
 }
 
