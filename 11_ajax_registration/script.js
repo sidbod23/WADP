@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', () => {
           password: document.getElementById('password').value
         };
   
-  
+
         let users = JSON.parse(localStorage.getItem('users')) || [];
         users.push(user);
         localStorage.setItem('users', JSON.stringify(users));
